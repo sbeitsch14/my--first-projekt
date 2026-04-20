@@ -1,91 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Project</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 20px auto;
         }
-
-        body {
-            background-color: #f0f0f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: darkblue;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: background-color 0.5s ease;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        p {
-            text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        button {
-            padding: 15px 40px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .button {
+            padding: 10px 20px;
+            margin: 20px;
             color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        button:active {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            background-color: blue;
+            border: none;
+            cursor: pointer;
         }
     </style>
-    <title>Моя первая страница</title>
 </head>
 <body>
-    <h1>Добро пожаловать в лабораторию!</h1>
-    <p>Меня зовут sbeitsch14, и это мой первый проект.</p>
-    
-    <div class="button-container">
-        <button onclick="changeBackgroundColor()">🎨 Изменить цвет фона</button>
-    </div>
-
+    <div class="avatar"></div>
+    <h1>Welcome to My First Project</h1>
+    <button class="button" id="clickButton">Click Me</button>
+    <p id="counterText">Click count: 0</p>
     <script>
-        function changeBackgroundColor() {
-            const colors = [
-                '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
-                '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#A8E6CF',
-                '#FFD3B6', '#FFAAA5', '#FF8B94', '#A8D8EA', '#AA96DA',
-                '#FCBAD3', '#A1D3B0', '#F7CAC9', '#92A8D1', '#B5EAD7'
-            ];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            document.body.style.backgroundColor = randomColor;
-        }
+        let count = 0;
+        const button = document.getElementById('clickButton');
+        const counterText = document.getElementById('counterText');
+
+        button.addEventListener('click', function() {
+            count++;
+            counterText.innerText = `Click count: ${count}`;
+            button.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        });
     </script>
 </body>
 </html>
