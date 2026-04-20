@@ -5,37 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Project</title>
     <style>
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 20px auto;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .buttons-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
         }
         .button {
-            padding: 10px 20px;
-            margin: 20px;
+            padding: 15px 40px;
+            font-size: 18px;
             color: white;
             background-color: blue;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+        .magic-button {
+            padding: 20px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .magic-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        .reset-button {
+            padding: 15px 40px;
+            font-size: 16px;
+            background-color: #666;
+        }
+        .reset-button:hover {
+            background-color: #555;
+        }
+        p {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="avatar"></div>
-    <h1>Welcome to My First Project</h1>
-    <button class="button" id="clickButton">Click Me</button>
-    <p id="counterText">Click count: 0</p>
+    <div class="container">
+        <h1>Welcome to My First Project</h1>
+        <div class="buttons-group">
+            <button class="button magic-button" id="clickButton">Магия цвета</button>
+            <button class="button reset-button" id="resetButton">Сброс</button>
+        </div>
+        <p id="counterText">Click count: 0</p>
+    </div>
     <script>
         let count = 0;
         const button = document.getElementById('clickButton');
+        const resetButton = document.getElementById('resetButton');
         const counterText = document.getElementById('counterText');
 
         button.addEventListener('click', function() {
             count++;
             counterText.innerText = `Click count: ${count}`;
+            document.body.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
             button.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        });
+
+        resetButton.addEventListener('click', function() {
+            count = 0;
+            counterText.innerText = `Click count: 0`;
+            document.body.style.backgroundColor = 'white';
+            button.style.backgroundColor = 'blue';
         });
     </script>
 </body>
