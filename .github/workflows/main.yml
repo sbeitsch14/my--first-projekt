@@ -1,0 +1,10 @@
+name: Приветствие от робота
+
+on: [push]
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Поздороваться
+        run: echo "Привет, sbeitsch14! Я проверил твой код, всё загружено успешно. Ты — настоящий профи!"
