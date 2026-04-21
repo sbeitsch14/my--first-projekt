@@ -6,13 +6,6 @@
     <title>Лаборатория sbeitsch14</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1087/1087815.png" type="image/png">
     <style>
-            .quote-box {
-    margin-top: 20px;
-    padding: 15px;
-    border-left: 5px solid #007bff;
-    background: rgba(0,123,255,0.1);
-    font-style: italic;
-    max-width: 80%;
         :root {
             --bg-color: #ffffff;
             --text-color: #333333;
@@ -62,20 +55,25 @@
             display: flex;
             gap: 10px;
         }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
         .links-panel a {
             background: white;
             padding: 10px 15px;
             border-radius: 5px;
             color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Стили для цитаты - теперь всё закрыто правильно */
+        .quote-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            background: rgba(0,123,255,0.1);
+            font-style: italic;
+            max-width: 80%;
+            text-align: center;
         }
     </style>
-
-}
 </head>
 <body>
 
@@ -116,6 +114,7 @@
             document.getElementById('count').innerText = count;
             document.body.style.backgroundColor = "";
             document.body.classList.remove('dark-mode');
+            document.querySelector('.theme-toggle').innerText = "🌙 Тема";
         }
 
         // Приветствие по времени
@@ -124,13 +123,15 @@
         if (hour < 12) greeting.innerText = "Доброе утро!";
         else if (hour < 18) greeting.innerText = "Добрый день!";
         else greeting.innerText = "Добрый вечер!";
+
+        // Логика цитат
         const quotes = [
-    "Программирование — это не то, что вы знаете, а то, что вы можете выяснить.",
-    "Лучший способ предсказать будущее — создать его.",
-    "Ошибки — это знаки препинания в жизни, без которых, как и в тексте, не будет смысла."
-];
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-document.body.insertAdjacentHTML('beforeend', `<div class="quote-box">${randomQuote}</div>`);
+            "Программирование — это не то, что вы знаете, а то, что вы можете выяснить.",
+            "Лучший способ предсказать будущее — создать его.",
+            "Ошибки — это знаки препинания в жизни, без которых, как и в тексте, не будет смысла."
+        ];
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.body.insertAdjacentHTML('beforeend', `<div class="quote-box">${randomQuote}</div>`);
     </script>
 </body>
 </html>
