@@ -3,246 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Project</title>
+    <title>My First Projekt</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-            padding: 20px;
+            transition: background-color 0.5s, color 0.5s;
         }
-        .container {
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 600px;
+        .dark-mode {
+            background-color: #333;
+            color: white;
         }
-        .greeting {
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
             font-size: 24px;
-            color: #555;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-        h1 {
-            margin-bottom: 30px;
-            color: #333;
-            animation: fadeIn 1.2s ease-out;
-            font-size: clamp(24px, 6vw, 48px);
-        }
-        .buttons-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            width: 100%;
-        }
-        .button {
-            padding: 15px 40px;
-            font-size: 18px;
-            color: white;
-            background-color: blue;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.2s ease;
-            width: 100%;
-            max-width: 300px;
-            min-height: 50px;
-        }
-        
-        @media (max-width: 768px) {
-            .button {
-                padding: 16px 30px;
-                font-size: 16px;
-                min-height: 48px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .button {
-                padding: 14px 24px;
-                font-size: 14px;
-                min-height: 44px;
-            }
-        }
-        
-        .magic-button {
-            padding: 20px 50px;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .magic-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-        .reset-button {
-            padding: 15px 40px;
-            font-size: 16px;
-            background-color: #666;
-        }
-        .reset-button:hover {
-            background-color: #555;
-        }
-        p {
-            margin-top: 30px;
-            font-size: 20px;
-            color: #333;
-        }
-        
-        @media (max-width: 480px) {
-            p {
-                font-size: 18px;
-            }
-        }
-        
-        .links-panel {
-            margin-top: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            border-radius: 8px;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        
-        @media (max-width: 480px) {
-            .links-panel {
-                gap: 12px;
-                padding: 15px;
-            }
-        }
-        
-        .link-button {
-            padding: 12px 24px;
-            font-size: 16px;
-            text-decoration: none;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: inline-block;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .link-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        @media (max-width: 480px) {
-            .link-button {
-                padding: 11px 20px;
-                font-size: 14px;
-                min-height: 44px;
-                flex: 1;
-                min-width: 100px;
-            }
-        }
-        
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            font-size: 14px;
-            color: #999;
-        }
-        
-        @media (max-width: 480px) {
-            .footer {
-                font-size: 12px;
-                margin-top: 30px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="greeting" id="greeting"></div>
-        <h1>Welcome to My First Project</h1>
-        <div class="buttons-group">
-            <button class="button magic-button" id="clickButton">Магия цвета</button>
-            <button class="button reset-button" id="resetButton">Сброс</button>
-        </div>
-        <p id="counterText">Click count: 0</p>
-        <div class="links-panel">
-            <a href="https://google.com" target="_blank" class="link-button">Google</a>
-            <a href="https://youtube.com" target="_blank" class="link-button">YouTube</a>
-            <a href="https://github.com" target="_blank" class="link-button">GitHub</a>
-        </div>
-    </div>
-    <div class="footer">
-        © 2026 sbeitsch14. Сделано с помощью ИИ
-    </div>
+    <div class="toggle-button" id="toggle-button">🌙</div>
     <script>
-        // Set greeting based on time of day
-        function setGreeting() {
-            const hour = new Date().getHours();
-            const greetingElement = document.getElementById('greeting');
-            
-            if (hour >= 5 && hour < 12) {
-                greetingElement.textContent = 'Доброе утро!';
-            } else if (hour >= 12 && hour < 18) {
-                greetingElement.textContent = 'Добрый день!';
-            } else {
-                greetingElement.textContent = 'Добрый вечер!';
-            }
+        const toggleButton = document.getElementById('toggle-button');
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            toggleButton.innerHTML = '🌞';
         }
-        
-        setGreeting();
-        
-        let count = 0;
-        const button = document.getElementById('clickButton');
-        const resetButton = document.getElementById('resetButton');
-        const counterText = document.getElementById('counterText');
 
-        button.addEventListener('click', function() {
-            count++;
-            counterText.innerText = `Click count: ${count}`;
-            document.body.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-            button.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-        });
-
-        resetButton.addEventListener('click', function() {
-            count = 0;
-            counterText.innerText = `Click count: 0`;
-            document.body.style.backgroundColor = 'white';
-            button.style.backgroundColor = 'blue';
-        });
+        toggleButton.onclick = function() {
+            document.body.classList.toggle('dark-mode');
+            const darkModeEnabled = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', darkModeEnabled);
+            toggleButton.innerHTML = darkModeEnabled ? '🌞' : '🌙';
+        };
     </script>
 </body>
 </html>
